@@ -1,5 +1,3 @@
-package Boruvka;
-
 public class LLPNode {
     int id;
     int parent;
