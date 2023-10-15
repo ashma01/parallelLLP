@@ -1,5 +1,10 @@
-import java.util.*;
-import java.util.stream.Collectors;
+import Boruvka.Boruvka;
+import Boruvka.BoruvkaFactory;
+import Boruvka.BoruvkaFactoryImplementation;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ListRankingApp {
     public static void main(String[] args) {
@@ -22,6 +27,15 @@ public class ListRankingApp {
             System.out.println(current.rank);
             current = current.next;
         }
+        int[] mwe = {1, 1, 2, 3, 3, 4, 4};  // Example minimum weight edges
+        int numThreads = 4;  // Number of threads to run in parallel
+
+        // Use the factory to create an instance of BoruvkaLLP
+        BoruvkaFactory boruvkaFactory = new BoruvkaFactoryImplementation();
+        Boruvka boruvkaLLP = boruvkaFactory.createBoruvkaInstance(mwe);
+
+        boruvkaLLP.initializeG();  // Initialize G using the minimum weight edges
+        boruvkaLLP.boruvkaLLP(numThreads);  // Run Boruvka's algorithm using LLP
     }
     public void parallelListRanking(ListNode head) {
         ParallelLLP<ListNode> pll = new ParallelLLP<>(4);  // Using 4 threads.
