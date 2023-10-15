@@ -29,7 +29,7 @@ public class ListRankingApp {
 
         // Clone the matrix to G
         boolean[][] G = new boolean[A.length][];
-        System.out.println("Glength-->" + G.length);
+        System.out.println("G length-->" + G.length);
         for (int i = 0; i < A.length; i++) {
             G[i] = A[i].clone();
         }

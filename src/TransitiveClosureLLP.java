@@ -5,22 +5,6 @@ public class TransitiveClosureLLP implements LatticePredicate<Entry> {
         this.G = G;
     }
 
-//    @Override
-//    public boolean evaluate(int[] cell) {
-//        int i = cell[0];
-//        int j = cell[1];
-//
-//        System.out.println("i= " + i + "j= " + j);
-//
-//        for (int k = 0; k < G.length; k++) {
-//            if (G[i][k] && G[k][j]) {
-//                G[i][j] = true;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
 
     @Override
     public boolean evaluate(Entry entry) {
