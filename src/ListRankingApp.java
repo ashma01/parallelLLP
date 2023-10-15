@@ -27,7 +27,7 @@ public class ListRankingApp {
             System.out.println(current.rank);
             current = current.next;
         }
-        int[] mwe = {1, 1, 2, 3, 3, 4, 4};  // Example minimum weight edges
+        int[] mwe = {0, 1, 2, 3, 4, 5, 6};  // Example minimum weight edges
         int numThreads = 4;  // Number of threads to run in parallel
 
         // Use the factory to create an instance of BoruvkaLLP

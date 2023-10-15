@@ -19,50 +19,11 @@ public class Boruvka {
         }
     }
 
-    public synchronized void processMinimumWeightEdges() {
-        for (int v = 0; v < mwe.length; v++) {
-            int w = mwe[v];
-            int parentV = find(v);
-            int parentW = find(w);
-
-            // Update the LLP tree based on the minimum weight edge
-            if (mwe[parentV] > mwe[parentW]) {
-                LLP[parentV].parent = parentW;
-            } else {
-                LLP[parentW].parent = parentV;
-            }
-        }
-    }
-
     public void boruvkaLLP(int numThreads) {
-        // Perform the initial processing of minimum weight edges
-        processMinimumWeightEdges();
+        System.out.println("Starting boruvkaLLP method...");
 
-        // Find the representative component for each vertex
-        int[] components = new int[mwe.length];
-        Arrays.fill(components, -1);
-
-        for (int v = 0; v < mwe.length; v++) {
-            components[v] = find(v);
-        }
-
-        // Find the minimum weight edge for each component
-        int[] minWeightEdgeForComponent = new int[mwe.length];
-        Arrays.fill(minWeightEdgeForComponent, Integer.MAX_VALUE);
-
-        for (int v = 0; v < mwe.length; v++) {
-            int component = components[v];
-            minWeightEdgeForComponent[component] = Math.min(minWeightEdgeForComponent[component], mwe[v]);
-        }
-
-        // Merge components based on minimum weight edges
-        for (int v = 0; v < mwe.length; v++) {
-            int component = components[v];
-            if (mwe[v] == minWeightEdgeForComponent[component]) {
-                merge(component, mwe[v]);
-            }
-        }
-
+        // Step 1: Process and merge minimum weight edges
+        System.out.println("Processing and merging minimum weight edges...");
         // Wait for all threads to finish
         ExecutorService executor = Executors.newFixedThreadPool(numThreads);
 
@@ -73,26 +34,34 @@ public class Boruvka {
 
             executor.execute(() -> {
                 for (int v = start; v < end; v++) {
-                    int component = components[v];
-                    if (mwe[v] == minWeightEdgeForComponent[component]) {
-                        merge(component, mwe[v]);
-                    }
+                    processMinimumWeightEdges();
+
                 }
             });
         }
 
         executor.shutdown();
         try {
-            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            // Wait for all threads to finish
+            boolean terminated = executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            if (terminated) {
+                System.out.println("All threads have completed execution.");
+            } else {
+                System.err.println("Some threads did not complete within the specified time.");
+            }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            System.err.println("Thread execution was interrupted: " + e.getMessage());
         }
+
+        System.out.println("Merged components: " + Arrays.toString(LLP));
+
     }
 
     public void initializeG() {
         // Structure G
         int[] g = new int[mwe.length];
-        Arrays.fill(g, -1);
+
         for (int v = 0; v < mwe.length; v++) {
             int w = mwe[v];
             if (w == v) {
@@ -107,36 +76,76 @@ public class Boruvka {
     }
 
     public synchronized int find(int v) {
-        // Check if v is its own parent (a representative component)
-        if (LLP[v].parent == -1) {
-            return v;
-        }
-
-        // Keep track of the nodes visited in this path
-        List<Integer> visitedNodes = new ArrayList<>();
-
-        // Traverse the path to find the root iteratively
-        while (LLP[v].parent != -1) {
-            visitedNodes.add(v);
-            v = LLP[v].parent;
+        int root = v;
+        while (LLP[root].parent != -1) {
+            root = LLP[root].parent;
         }
 
         // Perform path compression for all visited nodes
-        int root = v;
-        for (int node : visitedNodes) {
-            LLP[node].parent = root;
+        int current = v;
+        while (LLP[current].parent != -1) {
+            int parent = LLP[current].parent;
+            LLP[current].parent = root;
+            current = parent;
         }
 
+        System.out.println("Find " + v + " -> Root: " + root);
         return root;
     }
-
-
 
     public synchronized void merge(int v, int w) {
         int rootV = find(v);
         int rootW = find(w);
+
+        System.out.println("Merging " + v + " (Root: " + rootV + ") with " + w + " (Root: " + rootW + ")");
+
         if (rootV != rootW) {
             LLP[rootV].parent = rootW;
+            System.out.println("Merged " + v + " with " + w);
+        }
+    }
+
+
+    public synchronized void processMinimumWeightEdges() {
+        System.out.println("Starting processMinimumWeightEdges...");
+        System.out.println("Array length: " + mwe.length);
+        for (int v = 0; v < mwe.length; v++) {
+            System.out.println("Processing vertex " + v);
+            int w = mwe[v];
+            int parentV = find(v);
+            int parentW = find(w);
+
+            System.out.println("mwe[" + v + "] = " + w);
+            System.out.println("Parent of " + v + " is " + parentV);
+            System.out.println("Parent of " + w + " is " + parentW);
+
+            // Update the LLP tree based on the minimum weight edge
+            if (mwe[parentV] > mwe[parentW]) {
+                LLP[parentV].parent = parentW;
+                System.out.println("Edge processed: " + v + " -> " + w);
+            } else {
+                LLP[parentW].parent = parentV;
+                System.out.println("Edge processed: " + w + " -> " + v);
+            }
+        }
+        System.out.println("Finished processMinimumWeightEdges.");
+        mergeMinimumWeightEdges();
+    }
+
+
+    public synchronized void mergeMinimumWeightEdges() {
+        for (int v = 0; v < mwe.length; v++) {
+            int w = mwe[v];
+            if (w != v) {  // Only merge if it's not a self-loop
+                int parentV = find(v);
+                int parentW = find(w);
+
+                if (mwe[parentV] == w) {
+                    merge(parentV, w);
+                } else if (mwe[parentW] == v) {
+                    merge(parentW, v);
+                }
+            }
         }
     }
 }
