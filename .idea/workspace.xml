@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/parallelLLP/ListRanking.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/parallelLLP/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/parallelLLP/NodeAdvancer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/parallelLLP/NodePredicate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ListRanking.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NodeAdvancer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NodePredicate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW3.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingPredicate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ParallelLLP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/ParallelLLP.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/TransitiveClosureLLP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/TransitiveClosureLLP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ListNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListRankingApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListRankingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ListRankingPredicate.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

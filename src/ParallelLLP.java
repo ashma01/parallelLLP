@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -36,14 +37,13 @@ public class ParallelLLP<T> {
         try {
             for (int i = 0; i < numThreads; i++) {
                 boolean[] localResults = futures[i].get();
-                for (int j = 0; j < localResults.length; j++) {
-                    results[i * chunkSize + j] = localResults[j];
-                }
+                System.arraycopy(localResults, 0, results, i * chunkSize, localResults.length);
             }
-        } catch (Exception e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
         return results;
     }
+
 }

@@ -1,58 +1,11 @@
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Driver {
     public static void main(String[] args) {
         Driver app = new Driver();
 
-<<<<<<< Updated upstream:src/ListRankingApp.java
-        // Sample usage
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-
-        app.parallelListRanking(node1);
-
-        // Output the rank of each node.
-        ListNode current = node1;
-        while (current != null) {
-            System.out.println(current.rank);
-            current = current.next;
-        }
-    }
-    public void parallelListRanking(ListNode head) {
-        ParallelLLP<ListNode> pll = new ParallelLLP<>(4);  // Using 4 threads.
-
-        List<ListNode> activeNodes = new ArrayList<>();
-        ListNode current = head;
-        while (current != null) {
-            activeNodes.add(current);
-            current = current.next;
-        }
-
-        while (!activeNodes.isEmpty()) {
-            List<ListNode> nextActiveNodes = Collections.synchronizedList(new ArrayList<>());
-
-            pll.compute(activeNodes, node -> {
-                if (node.next != null) {
-                    node.rank += 1 + node.next.rank;  // Adopt the next's rank
-                    if (node.next.next != null) {
-                        nextActiveNodes.add(node.next.next);  // Prepare for the next round
-                    }
-                    node.next = node.next.next;  // Jump two steps
-                }
-                return true;
-            });
-
-            activeNodes = new ArrayList<>(nextActiveNodes);  // Start next round with nodes ready for processing
-        }
-    }
-
-=======
         System.out.println("call list ranking");
         app.listRanking();
 //
@@ -207,14 +160,36 @@ public class Driver {
     }
 
 
-
     private void topo() {
         LLP_TopologicalSort.Node n0 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n1 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n2 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n3 = new LLP_TopologicalSort.Node();
->>>>>>> Stashed changes:src/Driver.java
 
+        n1.predecessors.add(n0);
+        n2.predecessors.add(n0);
+        n3.predecessors.add(n1);
+        n3.predecessors.add(n2);
 
+        List<LLP_TopologicalSort.Node> graph = Arrays.asList(n0, n1, n2, n3);
 
+        ParallelLLP<LLP_TopologicalSort.Node> pll = new ParallelLLP<>(4);
+
+        // Continuously run the compute method until no more changes are observed
+        boolean changed;
+        do {
+            boolean[] results = pll.compute(graph, new LLP_TopologicalSort.TopologicalPredicate());
+            changed = false;
+            for (boolean val : results) {
+                if (val) {
+                    changed = true;
+                    break;
+                }
+            }
+        } while (changed);
+
+        for (int i = 0; i < graph.size(); i++) {
+            System.out.println("Node " + i + " Order: " + graph.get(i).value);
+        }
+    }
 }
