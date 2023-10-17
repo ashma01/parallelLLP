@@ -1,12 +1,13 @@
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
-public class ListRankingApp {
+public class Driver {
     public static void main(String[] args) {
-        ListRankingApp app = new ListRankingApp();
+        Driver app = new Driver();
 
-//        System.out.println("call list ranking");
-//        app.listRanking();
+        System.out.println("call list ranking");
+        app.listRanking();
 //
 
 //        System.out.println("call topological sort");
@@ -15,17 +16,42 @@ public class ListRankingApp {
 //        System.out.println("call boruvka");
 //        app.boruvka();
 
-        System.out.println("call transitive closure");
-        app.transitiveLLP();
+//        System.out.println("call transitive closure");
+//        app.transitiveLLP();
 
+    }
+
+    private void listRanking() {
+//        List<Node> nodes = new ArrayList<>();
+//        nodes.add(new Node(0, -1));  // root node
+//        nodes.add(new Node(1, 0));
+//        nodes.add(new Node(2, 1));
+//        nodes.add(new Node(3, 2));
+
+
+        List<Node> nodes = new ArrayList<>();
+        nodes.add(new Node(0, -1));  // root node
+        nodes.add(new Node(1, 0));  // child of 0
+        nodes.add(new Node(2, 0));  // child of 0
+        nodes.add(new Node(3, 2));  // child of 2
+        nodes.add(new Node(4, 3));  // child of 3
+        nodes.add(new Node(5, 3));  // child of 3
+
+        ListRanking listRanking = new ListRanking(nodes);
+        listRanking.rank();
+
+        // Output the results
+        for (Node node : nodes) {
+            System.out.println("Node Value: " + node.value + ", Distance from Root: " + node.dist);
+        }
     }
 
     private void transitiveLLP() {
         // Sample matrix A (using boolean[][] for representation)
         boolean[][] A = {{false, true, false, false},
-                         {false, false, true, false},
-                         {false, false, false, true},
-                         {false, false, false, false}};
+                {false, false, true, false},
+                {false, false, false, true},
+                {false, false, false, false}};
 
         // Clone the matrix to G
         boolean[][] G = new boolean[A.length][];
@@ -134,83 +160,6 @@ public class ListRankingApp {
     }
 
 
-    private void listRanking() {
-
-        // Sample usage
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-
-        parallelListRanking(node1);
-
-        // Output the rank of each node.
-        ListNode current = node1;
-        while (current != null) {
-            System.out.println(current.rank);
-            current = current.next;
-        }
-
-    }
-
-    public void parallelListRanking(ListNode head) {
-        ParallelLLP<ListNode> pll = new ParallelLLP<>(4);  // Using 4 threads.
-
-        List<ListNode> activeNodes = new ArrayList<>();
-        ListNode current = head;
-        while (current != null) {
-            activeNodes.add(current);
-            current = current.next;
-        }
-
-        while (!activeNodes.isEmpty()) {
-            List<ListNode> nextActiveNodes = Collections.synchronizedList(new ArrayList<>());
-
-            pll.compute(activeNodes, node -> {
-                if (node.next != null) {
-                    node.rank += 1 + node.next.rank;  // Adopt the next's rank
-                    if (node.next.next != null) {
-                        nextActiveNodes.add(node.next.next);  // Prepare for the next round
-                    }
-                    node.next = node.next.next;  // Jump two steps
-                }
-                return true;
-            });
-
-            activeNodes = new ArrayList<>(nextActiveNodes);  // Start next round with nodes ready for processing
-        }
-    }
-
-//    private void topoSort() {
-//        int n = 6;  // Assuming 6 nodes in the graph, indexed from 0 to 5
-//
-//        // Predecessors for each node, as an example:
-//        List<Integer>[] predecessors = new List[n];
-//        predecessors[0] = new LinkedList<>();  // Node 0 has no predecessors
-//        predecessors[1] = Arrays.asList(0);  // Node 1 has Node 0 as its predecessor
-//        predecessors[2] = Arrays.asList(0);
-//        predecessors[3] = Arrays.asList(1, 2);
-//        predecessors[4] = Arrays.asList(2);
-//        predecessors[5] = Arrays.asList(3, 4);  // Node 5 has Node 3 and Node 4 as its predecessors
-//
-//        // Initializing the ParallelLLP with 2 threads
-//        ParallelLLP<Integer> pll = new ParallelLLP<>(2);
-//
-//        // Create an instance of LLP_TopologicalSort and execute the algorithm
-//        LLP_TopologicalSort3 topologicalSort = new LLP_TopologicalSort3(n, predecessors, pll);
-//        int[] result = topologicalSort.parallelTopologicalSort();
-//
-//        System.out.println("Topological Order:");
-//        for (int value : result) {
-//            System.out.print(value + " ");
-//        }
-//
-//    }
-
-
     private void topo() {
         LLP_TopologicalSort.Node n0 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n1 = new LLP_TopologicalSort.Node();
@@ -243,5 +192,4 @@ public class ListRankingApp {
             System.out.println("Node " + i + " Order: " + graph.get(i).value);
         }
     }
-
 }
