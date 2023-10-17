@@ -20,7 +20,3 @@ public class TransitiveClosureLLP implements LatticePredicate<Entry> {
     }
 }
 
-//    boolean[][] A = {{false, true, false, false},
-//            {false, false, true, false},
-//            {false, false, false, true},
-//            {false, false, false, false}};

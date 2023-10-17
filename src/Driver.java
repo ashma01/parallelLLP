@@ -1,23 +1,54 @@
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class Driver {
     public static void main(String[] args) {
-        Driver app = new Driver();
 
-        System.out.println("call list ranking");
-        app.listRanking();
-//
+        Scanner input = new Scanner(System.in);  // Create a Scanner object
 
-//        System.out.println("call topological sort");
-//        app.topo();
 
-//        System.out.println("call boruvka");
-//        app.boruvka();
+        while (true) {
+            System.out.println("Select 1 for ListRanking");
+            System.out.println("Select 2 for Topological Sort");
+            System.out.println("Select 3 for Boruvka's MST Algorithm");
+            System.out.println("Select 4 for Transitive Closure Algorithm");
+            System.out.println("type exit to end");
+            System.out.print("Select your algorithm ::: ");
+            String algo = input.nextLine();  // Read user input
 
-//        System.out.println("call transitive closure");
-//        app.transitiveLLP();
+            switch (algo) {
+                case "1":
+                {
+                    System.out.println("Running :: ListRanking");  // Output user input
+                    Driver app = new Driver();
+                    app.listRanking();
+                    break;
+                }
+                case "2": {
+                    System.out.println("Running :: Topological Sort");  // Output user input
+                    Driver app = new Driver();
+                    app.topologicalSort();
+                    break;
+                }
+                case "3": {
+                    System.out.println("Running :: Boruvka's MST Algorithm");  // Output user input
+                    Driver app = new Driver();
+                    app.boruvka();
+                    break;
+                }
+                case "4": {
+                    System.out.println("Running :: Transitive Closure Algorithm");  // Output user input
+                    Driver app = new Driver();
+                    app.transitiveLLP();
+                    break;
+                }
+                case "exit":{
+                    System. exit(0);
+                }
+                default:
+                    System.out.println("Invalid Input");
+            }
+        }
 
     }
 
@@ -55,7 +86,6 @@ public class Driver {
 
         // Clone the matrix to G
         boolean[][] G = new boolean[A.length][];
-        System.out.println("G length-->" + G.length);
         for (int i = 0; i < A.length; i++) {
             G[i] = A[i].clone();
         }
@@ -160,7 +190,7 @@ public class Driver {
     }
 
 
-    private void topo() {
+    private void topologicalSort() {
         LLP_TopologicalSort.Node n0 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n1 = new LLP_TopologicalSort.Node();
         LLP_TopologicalSort.Node n2 = new LLP_TopologicalSort.Node();
