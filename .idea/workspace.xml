@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransitiveClosureLLP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransitiveClosureLLP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
