@@ -28,4 +28,5 @@ public class MSTEdgePredicate implements LatticePredicate<List<Edge>> {
         }
         return true;
     }
+
 }
