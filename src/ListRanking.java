@@ -3,12 +3,12 @@ import java.util.List;
 
 public class ListRanking {
     private final List<Node> nodeList;
-    private final ParallelLLP<Node> parallelLLP;
+    private final ParallelLLP<Node> pll;
     private static final int ROOT_INDEX = 0;  // Assuming the root node is at index 0
 
     public ListRanking(List<Node> nodeList) {
         this.nodeList = nodeList;
-        this.parallelLLP = new ParallelLLP<>(4);
+        this.pll = new ParallelLLP<>(4);
     }
 
     public void rank() {
@@ -18,7 +18,7 @@ public class ListRanking {
         boolean[] results;
         boolean hasForbidden;
         do {
-            results = parallelLLP.compute(nodeList, forbiddenCheck);
+            results = pll.compute(nodeList, forbiddenCheck);
 
             hasForbidden = false;
             for (boolean result : results) {
@@ -29,9 +29,11 @@ public class ListRanking {
             }
 
             if (hasForbidden) {
-                parallelLLP.compute(nodeList, advancer);
+                pll.compute(nodeList, advancer);
             }
         } while (hasForbidden);
+
+        pll.shutdown();
     }
 
 }

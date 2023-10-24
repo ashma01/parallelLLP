@@ -65,58 +65,60 @@ public class Driver {
         }
     }
 
-    private void transitiveLLP() throws IOException {
+    private void transitiveLLP(){
 
         InputReader inputReader = new InputReader();
-        boolean[][] A = inputReader.readMatrixFromFile("input/TransitiveInput.txt");
-        // Clone the matrix to G
-        boolean[][] G = new boolean[A.length][];
+        int[][] A = inputReader.readMatrixFromFile("input/TransitiveClosureInput.txt");
+        int[][] closure = computeTransitiveClosure(A);
+        printMatrix(closure);
+    }
 
-        for (int i = 0; i < A.length; i++) {
-            G[i] = A[i].clone();
+
+    public static int[][] computeTransitiveClosure(int[][] A) {
+        int n = A.length;
+        int[][] G = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            System.arraycopy(A[i], 0, G[i], 0, n);
         }
 
         List<Entry> matrixEntries = new ArrayList<>();
-        for (int i = 0; i < G.length; i++) {
-            for (int j = 0; j < G[i].length; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 matrixEntries.add(new Entry(i, j));
             }
         }
 
         ParallelLLP<Entry> pll = new ParallelLLP<>(4);
-
         boolean updated;
         do {
             updated = false;
-            // Compute using ParallelLLP
             boolean[] results = pll.compute(matrixEntries, new TransitiveClosureLLP(G));
 
-            // Check if there's any update in the matrix
-            for (boolean result : results) {
-                if (result) {
-                    updated = true;
-                    break;
+            for (int i = 0; i < results.length; i++) {
+                synchronized(G) {
+                    if (results[i]) {
+                        Entry entry = matrixEntries.get(i);
+                        G[entry.i][entry.j] = 1;
+                        updated = true;
+                    }
                 }
+
             }
 
         } while (updated);
 
+        pll.shutdown();
 
-        // Print the transitive closure
-        for (int i = 0; i < G.length; i++) {
-            for (int j = 0; j < G[0].length; j++) {
-                System.out.print(G[i][j] ? "true " : "false ");
-            }
-            System.out.println();
-        }
-
-
+        return G;
     }
+
+
 
     private void boruvka() throws IOException {
 
         InputReader inputReader = new InputReader();
-        Graph graph= inputReader.readInputForBoruvka("input/BoruvkaMst2.txt");
+        Graph graph = inputReader.readInputForBoruvka("input/BoruvkaMst2.txt");
         // Find the MST using Boruvka's Algorithm
         List<Edge> mst = boruvkaMST(graph);
         // Print the MST
@@ -145,6 +147,7 @@ public class Driver {
                 minWeightEdge[i] = null; // Reset for next iteration
             }
         }
+        pll.shutdown();
         return mstEdges;
     }
 
@@ -187,6 +190,16 @@ public class Driver {
 
         for (int i = 0; i < graph.size(); i++) {
             System.out.println("Node " + i + " Order: " + graph.get(i).value);
+        }
+        pll.shutdown();
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int cell : row) {
+                System.out.print(cell + " ");
+            }
+            System.out.println();
         }
     }
 }

@@ -67,8 +67,8 @@ public class InputReader {
         return graph;
     }
 
-    public boolean[][] readMatrixFromFile(String fileName) {
-        boolean[][] matrix = null;
+    public int[][] readMatrixFromFile(String fileName) {
+        int[][] matrix = null;
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -77,11 +77,11 @@ public class InputReader {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 if (matrix == null) {
-                    matrix = new boolean[values.length][values.length];
+                    matrix = new int[values.length][values.length];
                 }
 
                 for (int colCount = 0; colCount < values.length; colCount++) {
-                    matrix[rowCount][colCount] = Boolean.parseBoolean(values[colCount]);
+                    matrix[rowCount][colCount] = Integer.parseInt(values[colCount]);
                 }
 
                 rowCount++;
