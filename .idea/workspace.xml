@@ -6,17 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/TransitiveInput.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/TransitiveInput2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/ListRanking.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/ListRanking2.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/InputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/InputReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ParallelLLP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/ParallelLLP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/TransitiveClosureLLP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ListNode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListRanking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParallelLLP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParallelLLP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransitiveClosureLLP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransitiveClosureLLP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLPRankingPredicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLPRankingPredicate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListRanking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NodeAdvancer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NodePredicate.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,13 +109,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ListRankingLLP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ListRankingLLP" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParallelLLP1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ParallelLLP1" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Driver" />
       <item itemvalue="Application.GraphClosure" />
+      <item itemvalue="Application.ListRankingLLP" />
+      <item itemvalue="Application.ParallelLLP1" />
       <item itemvalue="Application.LLPDriverApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ListRankingLLP" />
+        <item itemvalue="Application.ParallelLLP1" />
         <item itemvalue="Application.GraphClosure" />
         <item itemvalue="Application.LLPDriverApp" />
         <item itemvalue="Application.LLPDriverApp" />

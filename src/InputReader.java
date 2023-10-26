@@ -8,19 +8,6 @@ import java.util.Set;
 
 public class InputReader {
 
-    public List<Node> readNodesFromFileListRanking(String filename) throws IOException {
-        List<Node> nodes = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                int value = Integer.parseInt(parts[0].trim());
-                int parent = Integer.parseInt(parts[1].trim());
-                nodes.add(new Node(value, parent));
-            }
-        }
-        return nodes;
-    }
 
     public List<TopologicalSortLLP> readNodesFromFileTopoSort(String filename) throws IOException {
         List<TopologicalSortLLP> llpTopologicalSorts = new ArrayList<>();
@@ -91,5 +78,20 @@ public class InputReader {
         }
 
         return matrix;
+    }
+
+    public int[] readListRankerInput(String fileName) {
+        List<Integer> parentList = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                parentList.add(Integer.parseInt(line));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return parentList.stream().mapToInt(i -> i).toArray();
     }
 }

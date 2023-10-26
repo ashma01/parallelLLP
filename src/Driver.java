@@ -21,7 +21,7 @@ public class Driver {
                 case "1": {
                     System.out.println("Running :: ListRanking");  // Output user input
                     Driver app = new Driver();
-                    app.listRanking();
+                    app.listRanker();
                     break;
                 }
                 case "2": {
@@ -52,17 +52,12 @@ public class Driver {
 
     }
 
-    private void listRanking() throws IOException {
-
+    private void listRanker() {
         InputReader inputReader = new InputReader();
-        List<Node> nodes = inputReader.readNodesFromFileListRanking("input/ListRanking.txt");
-        ListRanking listRanking = new ListRanking(nodes);
-        listRanking.rank();
-
-        // Output the results
-        for (Node node : nodes) {
-            System.out.println("Node Value: " + node.value + ", Distance from Root: " + node.dist);
-        }
+        int[] parent = inputReader.readListRankerInput("input/ListRanker2.txt");
+        ListRankingLLP llp = new ListRankingLLP(parent,4);
+        llp.compute();
+        llp.printResults();
     }
 
     private void transitiveLLP(){
@@ -118,7 +113,7 @@ public class Driver {
     private void boruvka() throws IOException {
 
         InputReader inputReader = new InputReader();
-        Graph graph = inputReader.readInputForBoruvka("input/BoruvkaMst2.txt");
+        Graph graph = inputReader.readInputForBoruvka("input/BoruvkaMst.txt");
         // Find the MST using Boruvka's Algorithm
         List<Edge> mst = boruvkaMST(graph);
         // Print the MST
@@ -171,7 +166,7 @@ public class Driver {
 
         InputReader inputReader = new InputReader();
 
-        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort2.txt");
+        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort.txt");
 
         ParallelLLP<TopologicalSortLLP> pll = new ParallelLLP<>(4);
 
