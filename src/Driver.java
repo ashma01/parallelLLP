@@ -54,7 +54,7 @@ public class Driver {
 
     private void listRanker() {
         InputReader inputReader = new InputReader();
-        int[] parent = inputReader.readListRankerInput("input/ListRanker2.txt");
+        int[] parent = inputReader.readListRankerInput("input/ListRanker.txt");
         ListRankingLLP llp = new ListRankingLLP(parent,4);
         llp.compute();
         llp.printResults();
@@ -166,7 +166,7 @@ public class Driver {
 
         InputReader inputReader = new InputReader();
 
-        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort.txt");
+        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort2.txt");
 
         ParallelLLP<TopologicalSortLLP> pll = new ParallelLLP<>(4);
 

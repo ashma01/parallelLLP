@@ -11,8 +11,12 @@ public class InputReader {
 
     public List<TopologicalSortLLP> readNodesFromFileTopoSort(String filename) throws IOException {
         List<TopologicalSortLLP> llpTopologicalSorts = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-            while (br.readLine() != null) {
+            br.readLine(); // Read and discard the first line
+
+            String line;
+            while ((line = br.readLine()) != null) {
                 llpTopologicalSorts.add(new TopologicalSortLLP()); // Initialize the node with an empty list of predecessors
             }
         }
@@ -20,6 +24,8 @@ public class InputReader {
         // Set predecessors based on the file
         int index = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            br.readLine(); // Read and discard the first line again
+
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.contains(":")) {
