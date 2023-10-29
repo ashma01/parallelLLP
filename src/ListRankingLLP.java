@@ -42,7 +42,7 @@ public class ListRankingLLP {
 
 
     public void printResults() {
-        IntStream.range(0, G.length).forEach(i -> {
+        IntStream.range(0, G.length-1).forEach(i -> {
             System.out.println("Node Value " + i + ": Distance from Root: " + G[i].dist );
         });
 
