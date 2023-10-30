@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/ListRanker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/ListRanker.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/GNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/LLPRankingPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/LLPRankingPredicate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingLLP.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLPNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LLPRankingPredicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLPRankingPredicate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListRankingLLP.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +115,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ListRankingParallelLLP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ListRankingParallelLLP" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParallelLLP1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ParallelLLP1" />
       <module name="parallelLLP" />
@@ -113,6 +131,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Driver" />
+      <item itemvalue="Application.ListRankingParallelLLP" />
       <item itemvalue="Application.GraphClosure" />
       <item itemvalue="Application.ListRankingLLP" />
       <item itemvalue="Application.ParallelLLP1" />
@@ -120,10 +139,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ListRankingParallelLLP" />
         <item itemvalue="Application.ListRankingLLP" />
         <item itemvalue="Application.ParallelLLP1" />
         <item itemvalue="Application.GraphClosure" />
-        <item itemvalue="Application.LLPDriverApp" />
         <item itemvalue="Application.LLPDriverApp" />
       </list>
     </recent_temporary>
@@ -142,7 +161,7 @@
       <workItem from="1697379972454" duration="19457000" />
       <workItem from="1697500623602" duration="26000" />
       <workItem from="1697672486755" duration="5005000" />
-      <workItem from="1698428971350" duration="797000" />
+      <workItem from="1698428971350" duration="7419000" />
     </task>
     <servers />
   </component>
@@ -159,16 +178,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ListRankingLLP.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -55,9 +55,7 @@ public class Driver {
     private void listRanker() {
         InputReader inputReader = new InputReader();
         int[] parent = inputReader.readListRankerInput("input/ListRanker.txt");
-        ListRankingLLP llp = new ListRankingLLP(parent,4);
-        llp.compute();
-        llp.printResults();
+        ListRankingParallelLLP listRankingParallelLLP = new ListRankingParallelLLP(parent,4);
     }
 
     private void transitiveLLP(){
