@@ -38,7 +38,7 @@ To find the Minimum Spanning Tree using Boruvka's Algorithm, select option 3 and
 To compute the transitive closure of a directed graph, choose option 4 and it will run the specified input file in the Driver class, from the repository.
 
 
-You may choose a different file for the algorithm, by changing the file name in the Driver class. We have two input files for each algorithm type.
+You may choose a different file for the algorithm, by changing the file name in the Driver class. We have two input files for each algorithm type located in the input folder in the classpath.
 
 **Input Formats**
 
