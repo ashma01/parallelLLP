@@ -29,16 +29,14 @@ This repository contains a Java program that implements various parallel algorit
    
    Here are some examples of how to use the program:
 
-To run the ListRanking algorithm, select option 1 and it will run the specified input file in the Driver class, from the repository.
+To run the ListRanking algorithm, select option 1 and it will run both the specified input file in the Driver class, from the repository.
 
-To perform a topological sort, choose option 2 and it will run the specified input file in the Driver class, from the repository.
+To perform a topological sort, choose option 2 and it will run both the specified input file in the Driver class, from the repository.
 
-To find the Minimum Spanning Tree using Boruvka's Algorithm, select option 3 and it will run the specified input file in the Driver class, from the repository.
+To find the Minimum Spanning Tree using Boruvka's Algorithm, select option 3 and it will run both the specified input file in the Driver class, from the repository.
 
-To compute the transitive closure of a directed graph, choose option 4 and it will run the specified input file in the Driver class, from the repository.
+To compute the transitive closure of a directed graph, choose option 4 and it will run both the specified input file in the Driver class, from the repository.
 
-
-You may choose a different file for the algorithm, by changing the file name in the Driver class. We have two input files for each algorithm type located in the input folder in the classpath.
 
 **Input Formats**
 
@@ -71,7 +69,7 @@ You may choose a different file for the algorithm, by changing the file name in 
 
 **List Ranking**
 
-- **Input File:** `ListRanking.txt`
+- **Input File:** `ListRanker.txt`
 - **Format:** The input is organized as follows:
     - The first line contains the root node. In list ranking, the root node serves as the starting point of the hierarchical structure. The root node typically has no parent.
     - The subsequent lines represent individual nodes in the list. Each line includes a single number, which is the unique identifier (or value) of the node. The order of these lines determines the order of the nodes in the list, with each node being connected to the node that appears above it in the list.
