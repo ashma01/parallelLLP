@@ -9,7 +9,7 @@ public class Driver {
 
 
         while (true) {
-            System.out.println("Select 1  --------- ListRanking");
+            System.out.println("\nSelect 1  --------- ListRanking");
             System.out.println("Select 2  --------- Topological Sort");
             System.out.println("Select 3  --------- Boruvka's MST Algorithm");
             System.out.println("Select 4  --------- Transitive Closure Algorithm");
@@ -19,25 +19,25 @@ public class Driver {
 
             switch (algo) {
                 case "1": {
-                    System.out.println("Running :: ListRanking");  // Output user input
+                    System.out.println("\nRunning :: ListRanking\n");  // Output user input
                     Driver app = new Driver();
                     app.listRanker();
                     break;
                 }
                 case "2": {
-                    System.out.println("Running :: Topological Sort");  // Output user input
+                    System.out.println("Running :: Topological Sort\n");  // Output user input
                     Driver app = new Driver();
                     app.topologicalSort();
                     break;
                 }
                 case "3": {
-                    System.out.println("Running :: Boruvka's MST Algorithm");  // Output user input
+                    System.out.println("Running :: Boruvka's MST Algorithm\n");  // Output user input
                     Driver app = new Driver();
                     app.boruvka();
                     break;
                 }
                 case "4": {
-                    System.out.println("Running :: Transitive Closure Algorithm");  // Output user input
+                    System.out.println("Running :: Transitive Closure Algorithm\n");  // Output user input
                     Driver app = new Driver();
                     app.transitiveLLP();
                     break;
@@ -56,6 +56,11 @@ public class Driver {
         InputReader inputReader = new InputReader();
         int[] parent = inputReader.readListRankerInput("input/ListRanker.txt");
         ListRankingParallelLLP listRankingParallelLLP = new ListRankingParallelLLP(parent,4);
+        System.out.println("\n***** Running on second input *******\n");
+        int[] parent2 = inputReader.readListRankerInput("input/ListRanker2.txt");
+        ListRankingParallelLLP listRankingParallelLLP2 = new ListRankingParallelLLP(parent2,4);
+
+
     }
 
     private void transitiveLLP(){
@@ -64,6 +69,10 @@ public class Driver {
         int[][] A = inputReader.readMatrixFromFile("input/TransitiveClosureInput.txt");
         int[][] closure = computeTransitiveClosure(A);
         printMatrix(closure);
+        System.out.println("\n***** Running on second input *******\n");
+        int[][] A2 = inputReader.readMatrixFromFile("input/TransitiveClosureInput2.txt");
+        int[][] closure2 = computeTransitiveClosure(A2);
+        printMatrix(closure2);
     }
 
 
@@ -120,6 +129,18 @@ public class Driver {
             System.out.println(e.v + " -- " + e.w + " ==> " + e.weight);
         }
 
+        System.out.println("\n***** Running on second input *******\n");
+
+        Graph graph2 = inputReader.readInputForBoruvka("input/BoruvkaMst2.txt");
+        // Find the MST using Boruvka's Algorithm
+        List<Edge> mst2 = boruvkaMST(graph2);
+        // Print the MST
+        System.out.println("Edges in the Minimum Spanning Tree:");
+        for (Edge e2 : mst2) {
+            System.out.println(e2.v + " -- " + e2.w + " ==> " + e2.weight);
+        }
+
+
     }
 
     private static List<Edge> boruvkaMST(Graph graph) {
@@ -164,8 +185,19 @@ public class Driver {
 
         InputReader inputReader = new InputReader();
 
-        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort2.txt");
+        List<TopologicalSortLLP> graph = inputReader.readNodesFromFileTopoSort("input/TopoSort.txt");
 
+        runningTopo(graph);
+
+        System.out.println("\n***** Running on second input *******\n");
+
+        List<TopologicalSortLLP> graph2 = inputReader.readNodesFromFileTopoSort("input/TopoSort2.txt");
+
+        runningTopo(graph2);
+
+    }
+
+    private static void runningTopo(List<TopologicalSortLLP> graph) {
         ParallelLLP<TopologicalSortLLP> pll = new ParallelLLP<>(4);
 
         // Continuously run the compute method until no more changes are observed

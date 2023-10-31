@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/ListRanker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/ListRanker.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/GNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/LLPRankingPredicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/LLPRankingPredicate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/ListRankingLLP.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLPNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LLPRankingPredicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LLPRankingPredicate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListRankingLLP.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +151,7 @@
       <workItem from="1697379972454" duration="19457000" />
       <workItem from="1697500623602" duration="26000" />
       <workItem from="1697672486755" duration="5005000" />
-      <workItem from="1698428971350" duration="7419000" />
+      <workItem from="1698428971350" duration="9550000" />
     </task>
     <servers />
   </component>
