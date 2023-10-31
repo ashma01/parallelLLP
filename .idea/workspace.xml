@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4c45048e-81d9-4124-969a-efc25dbc9ca3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/parallelLLP/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/input-reader-from-text" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +54,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ashmaparveen/Desktop/DesktopData/StudyMaterial/Fall23/Parallel Algorithm/Homeworks/HW3/HW3/parallelLLP&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ashmaparveen/Desktop/DesktopData/StudyMaterial/Fall23/Parallel Algorithm/Homeworks/HW3/HW3/parallelLLP/input&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,12 +69,23 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/input" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Driver">
     <configuration name="Driver" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Driver" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphClosure" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GraphClosure" />
       <module name="parallelLLP" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -85,12 +98,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ListRankingLLP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ListRankingLLP" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListRankingParallelLLP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ListRankingParallelLLP" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParallelLLP1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ParallelLLP1" />
+      <module name="parallelLLP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Driver" />
+      <item itemvalue="Application.ListRankingParallelLLP" />
+      <item itemvalue="Application.GraphClosure" />
+      <item itemvalue="Application.ListRankingLLP" />
+      <item itemvalue="Application.ParallelLLP1" />
       <item itemvalue="Application.LLPDriverApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ListRankingParallelLLP" />
+        <item itemvalue="Application.ListRankingLLP" />
+        <item itemvalue="Application.ParallelLLP1" />
+        <item itemvalue="Application.GraphClosure" />
         <item itemvalue="Application.LLPDriverApp" />
       </list>
     </recent_temporary>
@@ -108,6 +150,8 @@
       <workItem from="1697166417922" duration="5900000" />
       <workItem from="1697379972454" duration="19457000" />
       <workItem from="1697500623602" duration="26000" />
+      <workItem from="1697672486755" duration="5005000" />
+      <workItem from="1698428971350" duration="9550000" />
     </task>
     <servers />
   </component>

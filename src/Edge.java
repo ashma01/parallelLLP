@@ -1,5 +1,3 @@
-
-
 public class Edge {
     int v, w;      // Two vertices of the edge
     int weight;    // Weight of the edge

@@ -1,7 +1,7 @@
 public class TransitiveClosureLLP implements LatticePredicate<Entry> {
-    private boolean[][] G;
+    private final int[][] G;
 
-    public TransitiveClosureLLP(boolean[][] G) {
+    public TransitiveClosureLLP(int[][] G) {
         this.G = G;
     }
 
@@ -9,14 +9,15 @@ public class TransitiveClosureLLP implements LatticePredicate<Entry> {
     @Override
     public boolean evaluate(Entry entry) {
 
-        if (G[entry.i][entry.j]) return false;  // If it's already true, no need to evaluate further
-        for (int k = 0; k < G.length; k++) {
-            if (G[entry.i][k] && G[k][entry.j]) {
-                G[entry.i][entry.j] = true;
-                return true;  // Return true if we make an update
+        synchronized(G) {
+            if (G[entry.i][entry.j] == 1) return false;
+
+            for (int k = 0; k < G.length; k++) {
+                if (G[entry.i][k] == 1 && G[k][entry.j] == 1) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;  // Return false if no update was made
     }
 }
-

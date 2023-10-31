@@ -46,4 +46,8 @@ public class ParallelLLP<T> {
         return results;
     }
 
+    public void shutdown() {
+        executor.shutdown();
+    }
+
 }
