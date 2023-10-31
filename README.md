@@ -23,7 +23,7 @@ This repository contains a Java program that implements various parallel algorit
 
    javac Driver.java
 
-4. Run the program:
+3. Run the program:
 
    java Driver
    
