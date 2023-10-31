@@ -1,6 +1,6 @@
 # Parallel LLP Algorithms
 
-This repository contains a Java program that implements various parallel algorithms using the Parallel Linked List Ranking (LLP) framework. The program provides the following algorithms with user-friendly input options:
+This repository contains a Java program that implements various parallel algorithms using the Lattice Linear Predicate (LLP) framework. The program provides the following algorithms with user-friendly input options:
 
 1. **Boruvka's MST Algorithm** - Minimum Spanning Tree computation.
 2. **Topological Sort** - Performing a topological sort on a directed graph.
